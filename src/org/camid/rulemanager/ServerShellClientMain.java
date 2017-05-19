@@ -61,7 +61,7 @@ public class ServerShellClientMain
         EPServiceProviderJMXMBean proxy = (EPServiceProviderJMXMBean) MBeanServerInvocationHandler.newProxyInstance(
                      mbsc, mBeanName, EPServiceProviderJMXMBean.class, true);
 
-
+//        proxy.destroy("sensor1c");
         return proxy;
         
         // Create statement via JMX

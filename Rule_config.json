@@ -4,18 +4,18 @@
         "statements": [
             {
                 "statement_name": "insertotemp",
-                "expression": "insert into Temprature select * from sensor(dataType='Temprature')",
+                "expression": "insert into Temprature select * from DeviceData (dataType='Temprature')",
                 "listener_name":""
             },
             {
                 "statement_name": "insertohum",
-                "expression": "insert into Humidity select * from sensor(dataType='Humidity')",
+                "expression": "insert into Humidity select * from DeviceData (dataType='Humidity')",
                 "listener_name":""
             },
             {
                 "statement_name": "getavgtemp",
-                "expression": "select SensorAgentID, avg(value) as aValue from Temprature.win:time(20 sec) group by SensorAgentID",
-                "listener_name":"publishtomq"
+                "expression": "select DeviceID, avg(value) as aValue from Temprature.win:time(20 sec) group by DeviceID",
+                "listener_name":"AggergationListener"
             }
         ]
     },
@@ -23,13 +23,10 @@
         "count": 3,
         "statements": [
             {
-                "statement_name": "insertotemp"
+                "statement_name": "filter"
             },
             {
-                "statement_name": "insertohum"
-            },
-            {
-                "statement_name": "getavgtemp"
+                "statement_name": "sensor1c"
             }
         ]
     },
